@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:24:39 by luevange          #+#    #+#             */
-/*   Updated: 2025/01/30 18:38:39 by luevange         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:48:12 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)str);
 	return (NULL);
 }
-
-#include "get_next_line.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
