@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:24:39 by luevange          #+#    #+#             */
-/*   Updated: 2025/03/06 12:59:43 by luevange         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:43:51 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,19 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[j] = '\0';
 	free(s1);
 	return (str);
+}
+
+int	main(void)
+{
+	int fd;
+	int i = 15;
+	char *line;
+	fd = open("test.txt", O_RDONLY);
+	while (i)
+	{
+		line = get_next_line(fd);
+		printf("%s", line);
+		free(line);
+		i--;
+	}
 }

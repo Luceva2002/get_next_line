@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:24:05 by luevange          #+#    #+#             */
-/*   Updated: 2025/03/06 13:08:43 by luevange         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:48:50 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*extract_line(char *stash)
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
 		i++;
-	line = malloc(i + 1);
+	line = malloc(i + 2);
 	if (!line)
 		return (NULL);
 	ft_strlcpy(line, stash, i + 1);
@@ -101,7 +101,10 @@ char	*get_next_line(int fd)
 		if (bytes_read == 0)
 		{
 			if (ft_strlen(line) == 0)
+			{
+				free(line);
 				return (NULL);
+			}
 			return (line);
 		}
 		if (bytes_read < 0)
