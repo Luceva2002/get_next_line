@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:24:05 by luevange          #+#    #+#             */
-/*   Updated: 2025/03/06 13:48:50 by luevange         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:45:49 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	update_line(char *stash)
 	}
 }
 
-char	*extract_line(char *stash)
+static char	*extract_line(char *stash)
 {
 	int		i;
 	char	*line;
@@ -74,45 +74,50 @@ char	*extract_line(char *stash)
 	return (line);
 }
 
+static char	*process_stash(char **line, char *stash)
+{
+	char	*str;
+
+	if (ft_strchar(stash, '\n'))
+	{
+		str = extract_line(stash);
+		*line = ft_strjoin(*line, str);
+		free(str);
+		update_line(stash);
+		return (*line);
+	}
+	*line = ft_strjoin(*line, stash);
+	update_line(stash);
+	return (NULL);
+}
+
 char	*get_next_line(int fd)
 {
-	char		*str;
 	char		*line;
 	static char	stash[BUFFER_SIZE + 1];
 	int			bytes_read;
+	char		*result;
 
 	line = NULL;
-	str = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	while (1)
 	{
-		if (ft_strchar(stash, '\n'))
-		{
-			str = extract_line(stash);
-			line = ft_strjoin(line, str);
-			free(str);
-			update_line(stash);
-			return (line);
-		}
-		line = ft_strjoin(line, stash);
-		update_line(stash);
+		result = process_stash(&line, stash);
+		if (result)
+			return (result);
 		bytes_read = read(fd, stash, BUFFER_SIZE);
-		if (bytes_read == 0)
+		if (bytes_read <= 0)
 		{
-			if (ft_strlen(line) == 0)
-			{
-				free(line);
-				return (NULL);
-			}
-			return (line);
-		}
-		if (bytes_read < 0)
+			if (bytes_read == 0 && ft_strlen(line) > 0)
+				return (line);
+			free(line);
 			return (NULL);
+		}
 	}
 }
 
-/* int	main(void)
+/*int	main(void)
 {
 	int fd;
 	int i = 15;
@@ -125,4 +130,4 @@ char	*get_next_line(int fd)
 		free(line);
 		i--;
 	}
-} */
+}*/
