@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:24:24 by luevange          #+#    #+#             */
-/*   Updated: 2025/03/07 12:49:45 by luevange         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:18:43 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 250
+#  define BUFFER_SIZE 1
 # endif
 
 char	*ft_strlcpy(char *s1, char *s2, size_t len);

@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:24:05 by luevange          #+#    #+#             */
-/*   Updated: 2025/03/07 12:45:49 by luevange         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:23:13 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ char	*get_next_line(int fd)
 	}
 }
 
-/*int	main(void)
+/* int	main(void)
 {
 	int fd;
 	int i = 15;
@@ -130,4 +130,4 @@ char	*get_next_line(int fd)
 		free(line);
 		i--;
 	}
-}*/
+} */

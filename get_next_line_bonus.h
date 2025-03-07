@@ -6,12 +6,12 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:09:11 by luevange          #+#    #+#             */
-/*   Updated: 2025/03/07 15:09:13 by luevange         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:18:37 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <fcntl.h>
 # include <stdio.h>
@@ -20,7 +20,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 250
+#  define BUFFER_SIZE 1
 # endif
 
 char	*ft_strlcpy(char *s1, char *s2, size_t len);
